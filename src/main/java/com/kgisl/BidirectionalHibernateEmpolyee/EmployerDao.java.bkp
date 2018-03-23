@@ -1,0 +1,32 @@
+//in springboot we no need dao classes since while creating spring initilzr we will give dependency as web and jpa in that there will be dao
+
+
+
+
+package com.kgisl.BidirectionalHibernateEmpolyee;
+
+import org.hibernate.Session;
+ 
+import org.hibernate.SessionFactory;  
+import org.springframework.beans.factory.annotation.Autowired;  
+import org.springframework.stereotype.Repository;  
+import org.springframework.transaction.annotation.Transactional;  
+  
+@Transactional  
+@Repository  
+public class EmployerDao  
+{  
+  @Autowired  
+  SessionFactory sessionFactory;  
+
+  public EmployerDao(SessionFactory sessionFactory){this.sessionFactory=sessionFactory;}
+  
+    
+  public void save (Employer employer)  
+  {  
+    Session session = sessionFactory.getCurrentSession();  
+      
+    session.save(employer);  
+  }  
+      
+}  
