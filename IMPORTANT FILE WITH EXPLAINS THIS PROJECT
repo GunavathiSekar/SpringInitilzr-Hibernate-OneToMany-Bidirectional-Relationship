@@ -1,0 +1,31 @@
+http://localhost:8080/db/
+
+STEP 1 : give the url which is mentioned in application properties and give the password and login.
+
+
+STEP 2 : "ALL the insertions has been done as per home controller because we have given everything in home controller class itself."
+          If you want insert extra Below is the procedure :-
+ STEP 2a : You will have employer and Employee table separately, 
+          You cannot add an employee withut adding an employer 
+          Because employer id  is given in employee table which is the foreign key mapping.
+          
+STEP 2b : You can add any number of emploees to an employer but there should be only one employer for many employees.
+          because employee is many to one and employer is one to many(Though it is not mentioned it will not allow you to create).
+ 
+STEP 2c : You cannot insert values to employee table unless you have created an employer.
+
+STEP 2d : All the employee should have employer id which is present in the employer id table. Different employer id which is not in employer 
+          table should not been given to employer id column of employee table.
+          
+          
+STEP 3  :  After inserting as many values you are needed, now
+            DELETION --
+                  you cannot delete an employer without deleting all the employees under that particular employer id.
+                  Each and every employee of that particular employer id must be deleted and then only employer can be deleted.
+                  
+                  
+                  
+                  
+   -----------------------------------------------------------------------------------------------------
+   
+   This could be clearly understood only when you run the project and see the h2 db live.
